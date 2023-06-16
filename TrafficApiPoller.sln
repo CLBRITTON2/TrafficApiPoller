@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficApiPoller", "Traffic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficApiStandaloneTester", "TrafficApiStandaloneTester\TrafficApiStandaloneTester.csproj", "{2412B462-DC8C-4F24-8370-099665647BE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficApi", "TrafficApi\TrafficApi.csproj", "{08050FF7-E457-4DF0-903C-438061E7D339}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2412B462-DC8C-4F24-8370-099665647BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2412B462-DC8C-4F24-8370-099665647BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2412B462-DC8C-4F24-8370-099665647BE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08050FF7-E457-4DF0-903C-438061E7D339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08050FF7-E457-4DF0-903C-438061E7D339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08050FF7-E457-4DF0-903C-438061E7D339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08050FF7-E457-4DF0-903C-438061E7D339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

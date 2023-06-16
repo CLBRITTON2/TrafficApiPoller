@@ -14,13 +14,13 @@ using WashingtonTrafficApi;
 
 namespace TrafficApiStandaloneTester
 {
-    public class TrafficApi
+    public class TestTrafficApi
     {
-        private TrafficApiLog _log;
+        private TestTrafficApiLog _log;
 
-        public TrafficApi()
+        public TestTrafficApi()
         {
-            _log = new TrafficApiLog();
+            _log = new TestTrafficApiLog();
             _log.LogWrite("TrafficApi constructor called...");
         }
 
@@ -28,7 +28,7 @@ namespace TrafficApiStandaloneTester
         /// Requests traffic events from the wsdot API
         /// </summary>
         /// <returns>A list of deserialized traffic events</returns>
-        public List<Alert> GetTrafficAlerts()
+        public List<TestAlert> GetTrafficAlerts()
         {
             _log.LogWrite("Getting traffic alerts from wsdot.wa.gov");
 
@@ -42,9 +42,9 @@ namespace TrafficApiStandaloneTester
             using (StreamReader responseReader = new StreamReader(webStream))
             {
                 string response = responseReader.ReadToEnd();
-                var alerts = JsonConvert.DeserializeObject<List<Alert>>(response);
+                var alerts = JsonConvert.DeserializeObject<List<TestAlert>>(response);
 
-                return alerts ?? new List<Alert>();
+                return alerts ?? new List<TestAlert>();
             }
         }
     }

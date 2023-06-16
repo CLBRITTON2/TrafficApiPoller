@@ -4,23 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WashingtonTrafficApi;
 
-namespace TrafficApiStandaloneTester
+namespace TrafficApi
 {
     public class Poller
     {
         private bool _isRunning;
         private CancellationTokenSource _cts;
         private Task _poll;
-        private TrafficApiLog _log;
         private int _pollingInterval;
         private TrafficApi _trafficApi;
         private DateTime _lastPollUpdateTime;
 
         public Poller()
         {
-            _log = new TrafficApiLog();
             _pollingInterval = 10000;
             _trafficApi = new TrafficApi();
             _lastPollUpdateTime = DateTime.Now;
@@ -28,7 +25,7 @@ namespace TrafficApiStandaloneTester
 
         private async void PollForTrafficEvents()
         {
-            _log.LogWrite("WashingtonTrafficApi poller starting");
+            TrafficApiLog.LogWrite("WashingtonTrafficApi poller starting");
 
             List<Alert> alerts = new List<Alert>();
 
@@ -39,7 +36,7 @@ namespace TrafficApiStandaloneTester
                     _cts.Token.ThrowIfCancellationRequested();
                     alerts = _trafficApi.GetTrafficAlerts();
 
-                    _log.LogWrite($"Polling... Current interval: {_pollingInterval}");
+                    TrafficApiLog.LogWrite($"Polling... Current interval: {_pollingInterval}");
                     foreach (var alert in alerts.Where(x => x.LastUpdatedTime > _lastPollUpdateTime))
                     {
                         HandleTrafficAlert(alert);
@@ -88,18 +85,18 @@ namespace TrafficApiStandaloneTester
             // If token can be cancelled and cancellation has not been requested, request cancel
             if (_cts != null && _cts.Token.CanBeCanceled && !_cts.Token.IsCancellationRequested)
             {
-                _log.LogWrite("Cancelling token...");
+                TrafficApiLog.LogWrite("Cancelling token...");
                 _cts.Cancel();
                 try
                 {
-                    _log.LogWrite("Waiting for cancelled task to finish...");
+                    TrafficApiLog.LogWrite("Waiting for cancelled task to finish...");
                     _poll.Wait();
                 }
                 catch (OperationCanceledException)
                 {
                     // Do Nothing
                 }
-                _log.LogWrite("Task done...");
+                TrafficApiLog.LogWrite("Task done...");
                 _cts = null;
                 _poll = null;
             }

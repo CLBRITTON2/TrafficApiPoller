@@ -6,23 +6,18 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrafficApiStandaloneTester
+namespace TrafficApi
 {
     /// <summary>
     /// To enable logging create a log.txt file in the executing assembly
     /// </summary>
-    public class TrafficApiLog
+    public static class TrafficApiLog
     {
-        private string _exePath = string.Empty;
-        private string _logPath = string.Empty;
-        private bool _logExists;
-        public TrafficApiLog()
-        {
-            _exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            _logPath = $"{_exePath}\\log.txt";
-            _logExists = File.Exists(_logPath);
-        }
-        public void LogWrite(string logMessage)
+        private static string _exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private static string _logPath = $"{_exePath}\\log.txt";
+        private static bool _logExists = File.Exists(_logPath);
+
+        public static void LogWrite(string logMessage)
         {
             if (!_logExists)
             {
@@ -41,7 +36,7 @@ namespace TrafficApiStandaloneTester
             }
         }
 
-        public void Log(string logMessage, TextWriter txtWriter)
+        private static void Log(string logMessage, TextWriter txtWriter)
         {
             try
             {

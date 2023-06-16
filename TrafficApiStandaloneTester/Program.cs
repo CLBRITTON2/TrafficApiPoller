@@ -8,9 +8,13 @@ namespace TrafficApiStandaloneTester
 {
     internal class Program
     {
+        /// <summary>
+        /// Entry point
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Poller poller = new Poller();
+            TestPoller poller = new TestPoller();
             poller.StartPoller();
             Console.Read();
         }

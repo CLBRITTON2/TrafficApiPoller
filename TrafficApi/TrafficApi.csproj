@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2412B462-DC8C-4F24-8370-099665647BE1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TrafficApiStandaloneTester</RootNamespace>
-    <AssemblyName>TrafficApiStandaloneTester</AssemblyName>
+    <ProjectGuid>{08050FF7-E457-4DF0-903C-438061E7D339}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrafficApi</RootNamespace>
+    <AssemblyName>TrafficApi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,19 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestAlert.cs" />
-    <Compile Include="TestPoller.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Alert.cs" />
+    <Compile Include="Poller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestTrafficApi.cs" />
-    <Compile Include="TestTrafficApiLog.cs" />
+    <Compile Include="TrafficApi.cs" />
+    <Compile Include="TrafficApiLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="PrivateSettings.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="PrivateSettings.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
